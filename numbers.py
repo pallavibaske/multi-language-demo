@@ -1,10 +1,17 @@
-numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+def lambda_handler(event, context):
 
-highest = max(numbers)
-lowest = min(numbers)
-average = sum(numbers) / len(numbers)
+    numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
-print("Numbers:", numbers)
-print("Highest:", highest)
-print("Lowest:", lowest)
-print("Average:", average)
+    highest = max(numbers)
+    lowest = min(numbers)
+    average = sum(numbers) / len(numbers)
+
+    return {
+        "statusCode": 200,
+        "body": {
+            "numbers": numbers,
+            "highest": highest,
+            "lowest": lowest,
+            "average": average
+        }
+    }
